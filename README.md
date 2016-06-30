@@ -3,7 +3,6 @@ Reusable animation CSS for web apps.
 
 ## Resources
 
-
 ### Performance related
 
 Chrome Devtools: https://www.youtube.com/watch?v=U9xfYbKxosI  
@@ -22,5 +21,15 @@ https://medium.com/@adaptivepath/jedi-principles-of-ui-animation-2b88423b1dac#.r
 https://www.smashingmagazine.com/2016/03/integrate-motion-design-animation-ux-workflow/
 http://alistapart.com/article/motion-with-meaning-semantic-animation-in-interface-design
 http://valhead.com/2016/05/05/how-fast-should-your-ui-animations-be/
+
+### Possibe libs
+
+http://anime-js.com/
+
+## Animation catalogue
+
+A list of animations we should have:  
+fade / opacity (currently needed on landing page, maybe start flow)
+
 
 
