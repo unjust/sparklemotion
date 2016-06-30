@@ -22,7 +22,7 @@ https://www.smashingmagazine.com/2016/03/integrate-motion-design-animation-ux-wo
 http://alistapart.com/article/motion-with-meaning-semantic-animation-in-interface-design
 http://valhead.com/2016/05/05/how-fast-should-your-ui-animations-be/
 
-### Possibe libs
+### Possible libs
 
 http://anime-js.com/
 
