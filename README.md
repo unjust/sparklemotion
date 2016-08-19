@@ -11,7 +11,7 @@ http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
 https://developers.google.com/web/fundamentals/design-and-ui/animations/animations-and-performance?hl=en
 http://www.html5rocks.com/en/tutorials/speed/rendering/
 https://www.smashingmagazine.com/2013/03/animating-web-gonna-need-bigger-api/
-
+https://medium.com/outsystems-experts/how-to-achieve-60-fps-animations-with-css3-db7b98610108#.rvx1z9na8
 
 ### Design / interaction related
 
