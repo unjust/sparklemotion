@@ -22,6 +22,15 @@ https://www.smashingmagazine.com/2016/03/integrate-motion-design-animation-ux-wo
 http://alistapart.com/article/motion-with-meaning-semantic-animation-in-interface-design
 http://valhead.com/2016/05/05/how-fast-should-your-ui-animations-be/
 
+### From Designing Interface Animation
+* Making Instructional Animations More Effective: A Cognitive Load Approach, Paul Ayres and Fred Paas: http://rfld.me/1ScKuLV. 
+* Attention Cueing as a Means to Enhance Learning from an Animation, B.B. de Koning (Björn), H.K. Tabbers (Huib), R.M.J.P. Rikers (Remy),  and G.W.C. Paas (Fred) 2008-04-10: http://rfld.me/1S9UUtF.
+* Optimising Learning from Animations by Minimising Cognitive Load: Cognitive and Affective Consequences of Signalling and Segmentation Methods, Roxana Moreno: http://rfld.me/1YvF54j
+* Does Animation in User Interfaces Improve Decision Making? Cleotilde Gonzalez: http://rfld.me/1Qa1VbH.
+* Does Animation Help Users Build Mental Maps of Spatial Information? Benjamin B. Bederson, and Angela Boltman: http://rfld.me/23IkGwh
+* Animating Anthropomorphism: Giving Minds to Geometric Shapes, Jason G. Goldman on March 8, 2013: http://rfld.me/1Si0aRa or https://archive.is/aojec.
+* The film from the Fritz Heider and Marianne Simmel study: http://rfld.me/1MwhYpu.
+
 ### Possible libs
 
 http://anime-js.com/
