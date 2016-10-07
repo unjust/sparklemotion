@@ -1,7 +1,7 @@
 /* presentation */
 body {
   font-family: Arial;
-  font-size: 10px; }
+  font-size: 16px; }
 
 #main {
   display: -webkit-box;
@@ -33,7 +33,23 @@ nav {
   -webkit-flex-shrink: 1;
   -moz-flex-shrink: 1;
   flex-shrink: 1;
-  -ms-flex-negative: 1; }
+  -ms-flex-negative: 1;
+  margin-right: 16px; }
+  nav ul {
+    list-style-type: none; }
+
+#main--content {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1; }
 
 .animateEl {
   background-color: #000;
