@@ -1,12 +1,19 @@
+@import "../../node_modules/bourbon/app/assets/stylesheets/_bourbon.scss";
+
 /* presentation */
 body {
     font-family:Arial;
     font-size:10px;
 }
 
-.column {
-    float:left;
-    margin-right:30px;
+#main {
+	@include display(flex);
+	@include flex-direction(row);
+}
+
+nav {
+	@include display(flex);
+	@include flex-shrink(1);
 }
 
 .animateEl {
@@ -15,4 +22,5 @@ body {
     height:100px;
     margin:10px;
 }
+
 
