@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 		}
 	});
 
-	//grunt.registerTask('compile', ['clean', 'sass']);
-	grunt.registerTask('default', ['sass']);
+	grunt.registerTask('compile', ['clean', 'sass']);
+	grunt.registerTask('default', ['compile']);
 	grunt.registerTask('docs', ['gh-pages']);
 };
