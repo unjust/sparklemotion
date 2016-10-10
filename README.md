@@ -1,5 +1,5 @@
 # Sparklemotion
-Reusable animation CSS for web apps.
+Reusable animation CSS for web
 http://unjust.github.io/sparklemotion/
 
 ## Resources
