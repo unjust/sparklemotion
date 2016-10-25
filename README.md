@@ -1,6 +1,15 @@
 # Sparklemotion
 Reusable animation CSS for web apps.
 
+## Installation
+
+* clone the repo
+* from inside the repo directory, run `npm install`
+
+## Building the project
+  `grunt` or `grunt compile` builds the sass. `dist/animation.css` is then available for use.
+  `grunt docs` compiles the sass and builds the docs for the `gh-pages` branch
+ 
 ## Resources
 
 ### Performance related
