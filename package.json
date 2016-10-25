@@ -1,7 +1,7 @@
 {
   "name": "sparklemotion",
-  "version": "1.0.0",
-  "description": "animation set for web",
+  "version": "0.0.1",
+  "description": "Reusable, performant CSS animations for web",
   "main": "src/animations.sass",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,7 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-gh-pages": "^2.0.0",
     "grunt-sass": "^1.2.1",
+    "grunt-preprocess": "5.1.0",
     "load-grunt-tasks": "^3.5.2",
     "require": "^2.4.20"
   }
