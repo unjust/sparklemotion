@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Sparklemotion Docs</title>
 
-	<link rel="stylesheet" type="text/css" href="https://secure.meetupstatic.com/fonts/graphik.css" />
-	<link rel="stylesheet" type="text/css" href="https://meetup.github.io/sassquatch2/bundle/sassquatch.css" />
+	<link rel="stylesheet" type="text/css" href="<!-- @echo CSS_FONT -->" />
+	<link rel="stylesheet" type="text/css" href="<!-- @echo CSS_SASSQUATCH -->" />
 
 
 	<link rel="stylesheet" type="text/css" href="css/animation.css" />	
@@ -17,8 +17,8 @@
             <div class="bounds-header">
                 <header>
                     <h1 class="text--display1 text--red">sparkle motion</h1>
-                    <p>Reusable, performant CSS animations for web</p>
-                    <p class="chunk text--caption">version 0.0.1</p>
+                    <p><!-- @echo DESCRIPTION --></p>
+                    <p class="chunk text--caption">version <!-- @echo VERSION --></p>
                     <p><a class="link" href="https://github.com/unjust/sparklemotion">&larr; github</a></p>
                 </header>		
                 <nav>
@@ -46,7 +46,8 @@
 					<a name="fade"></a>
 					<div>
 						<h1>Fade</h1>
-						<div class="animateEl fade--in"></div>
+						<div class="animateEl anim-fade--in"></div>
+						<div class="animateEl transparent anim-fade--out"></div>
 					</div>
 				</section>
 			</div>
