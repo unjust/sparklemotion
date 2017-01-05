@@ -64,9 +64,7 @@
 							var elFadeOut = document.querySelector('.j-fade--out'),
 								elFadeIn = document.querySelector('.j-fade--in'),
 								link = document.querySelector('.j-click');
-							elFadeOut.addEventListener('click', (e) => {
-								muAnimate.hide(this);
-							});
+							elFadeOut.addEventListener('click', (e) => muAnimate.hide(this));
 							link.addEventListener('click', (e) => {
 								e.preventDefault();
 								elFadeIn.classList.add('anim-fade--in');
