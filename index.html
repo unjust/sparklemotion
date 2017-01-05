@@ -52,11 +52,20 @@
 						<a href="" class="j-click">fade me in</a>
 						<div class="animateEl transparent j-fade--in"></div>
 						<script>
+							var muAnimate = {
+								'show': function(el) {
+									el.classList.add('anim-fade--in');
+								},
+								'hide': function(el) {
+									el.classList.add('anim-fade--out');
+								}
+							};
+
 							var elFadeOut = document.querySelector('.j-fade--out'),
 								elFadeIn = document.querySelector('.j-fade--in'),
 								link = document.querySelector('.j-click');
 							elFadeOut.addEventListener('click', (e) => {
-								elFadeOut.classList.add('anim-fade--out');
+								muAnimate.hide(this);
 							});
 							link.addEventListener('click', (e) => {
 								e.preventDefault();
