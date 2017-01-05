@@ -10,7 +10,10 @@
   animation: fade--in 0.5s ease-in;
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
-  animation-iteration-count: 1; }
+  animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
 
 @keyframes fade--out {
   0% {
@@ -24,7 +27,10 @@
   animation: fade--out 0.5s ease-out;
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
-  animation-iteration-count: 1; }
+  animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
 
 .transparent {
   opacity: 0; }
