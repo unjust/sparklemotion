@@ -13,7 +13,8 @@ module.exports = function(grunt) {
 				files: {
 					'dist/animation.css': 'src/animation.scss',
 					'docs/dest/css/animation.css': 'src/animation.scss',
-					'docs/dest/css/elements.css': DOCS_SRC + 'css/elements.scss'
+					'docs/dest/css/elements.css': DOCS_SRC + 'css/elements.scss',
+					'docs/dest/css/jekyll-github.css': DOCS_SRC + 'css/jekyll-github.css' // this doesnt need processing, just mv to dest
 				}
 			}
 		},
