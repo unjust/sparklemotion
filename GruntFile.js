@@ -43,10 +43,23 @@ module.exports = function(grunt) {
 				base: 'docs'
 			},
 			src: ['**']
+		},
+
+		'jekyll': {
+			options: {
+				src: 'docs/dest',
+				// highlighter: 'rouge'
+			},
+			serve: { 
+				options: {
+					serve: true
+				}
+			}
 		}
 	});
 
 	grunt.registerTask('compile', ['clean', 'sass']);
 	grunt.registerTask('default', ['compile']);
 	grunt.registerTask('docs', ['compile', 'preprocess', 'gh-pages']);
+	grunt.registerTask('local-docs', [ 'compile', 'preprocess', 'jekyll']); 
 };
