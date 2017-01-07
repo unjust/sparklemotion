@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 
 		'gh-pages': {
 			options: {
-				base: 'docs'
+				base: 'docs/dest'
 			},
 			src: ['**']
 		}
