@@ -43,9 +43,9 @@ http://valhead.com/2016/05/05/how-fast-should-your-ui-animations-be/
 * The film from the Fritz Heider and Marianne Simmel study: http://rfld.me/1MwhYpu.
 
 ### Possible libs
-https://facebook.github.io/react/docs/animation.html
-http://anime-js.com/
-https://github.com/chenglou/react-motion
+https://facebook.github.io/react/docs/animation.html  
+http://anime-js.com/  
+https://github.com/chenglou/react-motion  
 https://github.com/callemall/material-ui/ (see https://github.com/callemall/material-ui/blob/master/src/Dialog/Dialog.js#L95)
 
 ## Animation catalogue
