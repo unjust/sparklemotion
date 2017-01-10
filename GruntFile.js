@@ -3,24 +3,29 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	const	DOCS_SRC = 'docs/src/',
+			DOCS_PROC = 'docs/processed/',
 			DOCS_DEST = 'docs/dest/';
 
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
 
+		'clean': {
+			css: ["dist/*.css", 'docs/processed']
+		},
+
 		'sass': {
 			dist: {
 				files: {
 					'dist/animation.css': 'src/animation.scss',
+					// for jekyll
+					'docs/src/css/animation.css': 'src/animation.scss',
+					'docs/src/css/doc_styles.css': DOCS_SRC + 'css/doc_styles.scss',
+					'docs/src/css/jekyll-github.css': DOCS_SRC + 'css/jekyll-github.css' 
 					'docs/dest/css/animation.css': 'src/animation.scss',
-					'docs/dest/css/elements.css': DOCS_SRC + 'css/elements.scss',
+					'docs/dest/css/doc_styles.css': DOCS_SRC + 'css/doc_styles.scss',
 					'docs/dest/css/jekyll-github.css': DOCS_SRC + 'css/jekyll-github.css' // this doesnt need processing, just mv to dest
 				}
 			}
-		},
-
-		'clean': {
-			css: ["dist/*.css"]
 		},
 
 		'preprocess': {
@@ -34,22 +39,26 @@ module.exports = function(grunt) {
 				},
 			},
 			docs: {
-				src: DOCS_SRC + 'index.html',
-				dest: DOCS_DEST + 'index.html'
+				html: {
+					files: {
+					'docs/src/index.html' : DOCS_SRC + 'index.pre.html',
+					'docs/dest/index.html': DOCS_SRC + 'index.pre.html'
+				}
 			}
 		},
 
 		'gh-pages': {
 			options: {
-				base: 'docs'
+				base: DOCS_DEST
 			},
 			src: ['**']
 		},
 
 		'jekyll': {
 			options: {
-				src: 'docs/dest',
-				// highlighter: 'rouge'
+				src: DOCS_SRC,
+				dest: DOCS_DEST,
+				watch: true
 			},
 			serve: { 
 				options: {
@@ -61,6 +70,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('compile', ['clean', 'sass']);
 	grunt.registerTask('default', ['compile']);
-	grunt.registerTask('docs', ['compile', 'preprocess', 'gh-pages']);
 	grunt.registerTask('local-docs', [ 'compile', 'preprocess', 'jekyll']); 
+	grunt.registerTask('docs', ['local-docs', 'gh-pages']);
 };
