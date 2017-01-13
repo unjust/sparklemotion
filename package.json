@@ -21,13 +21,16 @@
   },
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-jasmine": "^1.1.0",
     "grunt-gh-pages": "^2.0.0",
     "grunt-preprocess": "5.1.0",
     "grunt-sass": "^1.2.1",
+    "grunt-webpack": "^1.0.18",
     "load-grunt-tasks": "^3.5.2",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "webpack-dev-server": "^1.16.2"
   }
 }

@@ -18,6 +18,30 @@ module.exports = function(grunt) {
 			}
 		},
 
+		'babel': {
+			options: {
+				presets: ['es2015']
+			},
+			dist: {
+				files: {
+					'src/js/lib.js': 'src/js/lib.es6.js'
+				}
+			}
+
+		},
+
+		'webpack': {
+			hello: {
+				entry: './test/js/spec/DummySpec.js',
+				output: {
+					path: './testBuild',
+					filename: 'FinalSpec.js'
+				}
+			}
+		},
+
+		'webpack-dev-server': {},
+
 		'connect': {
 			jasmine_site: {
 				options: {
@@ -27,10 +51,11 @@ module.exports = function(grunt) {
 		},
 
 		'jasmine': {
-			src: ['src/js/*.js'],
+			src: 'src/js/lib.js',
 			options: {
-				specs: 'test/js/spec/DummySpec.js',
-				host: 'http://127.0.0.1:8000/'
+				specs: 'testBuild/FinalSpec.js',
+				// outfile: 'test/js/_SpecRunner.html'
+				// host: 'http://127.0.0.1:8000/'
 			}
 		},
 
@@ -65,6 +90,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('compile', ['clean', 'sass']);
 	grunt.registerTask('default', ['compile']);
 	grunt.registerTask('docs', ['compile', 'preprocess', 'gh-pages']);
-	grunt.registerTask('test', ['connect:jasmine_site', 'jasmine']);
+	grunt.registerTask('test', ['babel', 'webpack', 'connect:jasmine_site', 'jasmine']);
 	grunt.registerTask('travis', ['jasmine']);
 };

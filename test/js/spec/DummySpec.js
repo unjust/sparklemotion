@@ -1,4 +1,4 @@
-import swarmAnimate from 'lib';
+import swarmAnimate from '/src/js/lib';
 
 console.log("hello world");
 
