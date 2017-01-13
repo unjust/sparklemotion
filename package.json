@@ -20,6 +20,7 @@
     "bourbon": "^4.2.7"
   },
   "devDependencies": {
+    "babel-loader": "^6.2.10",
     "grunt": "^1.0.1",
     "grunt-babel": "^6.0.0",
     "grunt-contrib-clean": "^1.0.0",

@@ -24,7 +24,8 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'src/js/lib.js': 'src/js/lib.es6.js'
+					'src/js/lib.js': 'src/js/lib.es6.js',
+					'test/js/spec/DummySpec.js': 'test/js/spec/DummySpec.es6.js'
 				}
 			}
 
@@ -32,11 +33,19 @@ module.exports = function(grunt) {
 
 		'webpack': {
 			hello: {
-				entry: './test/js/spec/DummySpec.js',
+				entry: ['./src/js/lib.js', './test/js/spec/DummySpec.js'],
 				output: {
 					path: './testBuild',
 					filename: 'FinalSpec.js'
 				}
+				/*,
+				module: {
+					loaders: [{
+						test: /\.es6.js$/,
+						exclude: /node_modules/,
+						loader: 'babel-loader'
+					}]
+				}*/
 			}
 		},
 
@@ -51,7 +60,7 @@ module.exports = function(grunt) {
 		},
 
 		'jasmine': {
-			src: 'src/js/lib.js',
+			src: [],
 			options: {
 				specs: 'testBuild/FinalSpec.js',
 				// outfile: 'test/js/_SpecRunner.html'

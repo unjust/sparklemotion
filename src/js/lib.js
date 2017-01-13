@@ -5,15 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 // dummy lib for now to get testing hooked up
 
-exports.default = 123;
-/*
-export default swarmAnimation = {
-	hide() {},
-
-	show() {},
-
-	addOneTest(x) {
-		return x++;
+exports.default = {
+	hide: function hide() {},
+	show: function show() {},
+	addOneTest: function addOneTest(x) {
+		return ++x;
 	}
 };
-*/

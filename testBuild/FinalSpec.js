@@ -42,18 +42,51 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(1);
+	module.exports = __webpack_require__(2);
+
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
-	import swarmAnimate from '/src/js/lib';
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	// dummy lib for now to get testing hooked up
+
+	exports.default = {
+		hide: function hide() {},
+		show: function show() {},
+		addOneTest: function addOneTest(x) {
+			return ++x;
+		}
+	};
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _lib = __webpack_require__(1);
+
+	var _lib2 = _interopRequireDefault(_lib);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	console.log("hello world");
 
 	describe("a first test boilerplate for swarmAnimate functions", function () {
 
 		it("has a dummy add one function", function () {
-			expect(swarmAnimate.addOneTest(1)).toEqual(2);
+			expect(_lib2.default.addOneTest(1)).toEqual(2);
 		});
-
 	});
 
 
