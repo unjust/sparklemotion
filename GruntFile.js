@@ -18,6 +18,22 @@ module.exports = function(grunt) {
 			}
 		},
 
+		'connect': {
+			jasmine_site: {
+				options: {
+					port: 8000
+				}
+			}
+		},
+
+		'jasmine': {
+			src: ['src/js/*.js'],
+			options: {
+				specs: 'test/js/spec/DummySpec.js',
+				host: 'http://127.0.0.1:8000/'
+			}
+		},
+
 		'clean': {
 			css: ["dist/*.css"]
 		},
@@ -49,4 +65,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('compile', ['clean', 'sass']);
 	grunt.registerTask('default', ['compile']);
 	grunt.registerTask('docs', ['compile', 'preprocess', 'gh-pages']);
+	grunt.registerTask('test', ['connect:jasmine_site', 'jasmine']);
+	grunt.registerTask('travis', ['jasmine']);
 };
