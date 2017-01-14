@@ -3,7 +3,8 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	const	DOCS_SRC = 'docs/src/',
-			DOCS_DEST = 'docs/dest/';
+			DOCS_DEST = 'docs/dest/',
+			TEST_DEST = 'test/build/';
 
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
@@ -24,19 +25,19 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'src/js/lib.js': 'src/js/lib.es6.js',
-					'test/js/spec/DummySpec.js': 'test/js/spec/DummySpec.es6.js'
+					'test/build/lib.js': 'src/js/lib.es6.js',
+					'test/build/DummySpec.js': 'test/js/spec/DummySpec.es6.js'
 				}
 			}
 
 		},
 
 		'webpack': {
-			hello: {
-				entry: ['./src/js/lib.js', './test/js/spec/DummySpec.js'],
+			jasmine: {
+				entry: ['./' + TEST_DEST + 'lib.js', './'+ TEST_DEST + '/DummySpec.js'],
 				output: {
-					path: './testBuild',
-					filename: 'FinalSpec.js'
+					path: './' + TEST_DEST,
+					filename: 'compiled.js'
 				}
 				/*,
 				module: {
@@ -60,10 +61,10 @@ module.exports = function(grunt) {
 		},
 
 		'jasmine': {
-			src: [],
+			src: [], // TEST_DEST + 'lib.compiled.js',
 			options: {
-				specs: 'testBuild/FinalSpec.js',
-				// outfile: 'test/js/_SpecRunner.html'
+				specs: TEST_DEST + 'compiled.js',
+				outfile: TEST_DEST + '_SpecRunner.html'
 				// host: 'http://127.0.0.1:8000/'
 			}
 		},
