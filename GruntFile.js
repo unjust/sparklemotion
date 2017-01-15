@@ -9,6 +9,11 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
 
+		'clean': {
+			css: ["dist/*.css"],
+			js: ["dist/*.js"]
+		},
+
 		'sass': {
 			dist: {
 				files: {
@@ -23,23 +28,29 @@ module.exports = function(grunt) {
 			options: {
 				presets: ['es2015']
 			},
-			dist: {
+			test: {
 				files: {
 					'test/build/lib.js': 'src/js/lib.es6.js',
 					'test/build/DummySpec.js': 'test/js/spec/DummySpec.es6.js'
+				}
+			},
+			dist: {
+				files: {
+					'dist/lib.js': 'src/js/lib.es6.js'
 				}
 			}
 
 		},
 
 		'webpack': {
-			jasmine: {
+			test: {
 				entry: ['./' + TEST_DEST + 'lib.js', './'+ TEST_DEST + '/DummySpec.js'],
 				output: {
 					path: './' + TEST_DEST,
 					filename: 'compiled.js'
 				}
 				/*,
+				TODO: couldnt get this loader to work
 				module: {
 					loaders: [{
 						test: /\.es6.js$/,
@@ -69,10 +80,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		'clean': {
-			css: ["dist/*.css"]
-		},
-
 		'preprocess': {
 			// preprocess docs
 			options: {
@@ -97,9 +104,10 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.registerTask('compile', ['clean', 'sass']);
+	// TODO grunt copy for js, lint, uglify?
+	grunt.registerTask('compile', ['clean', 'sass', 'babel:dist']);
 	grunt.registerTask('default', ['compile']);
 	grunt.registerTask('docs', ['compile', 'preprocess', 'gh-pages']);
-	grunt.registerTask('test', ['babel', 'webpack', 'connect:jasmine_site', 'jasmine']);
-	grunt.registerTask('travis', ['babel', 'webpack', 'jasmine']);
+	grunt.registerTask('test', ['babel:test', 'webpack', 'connect:jasmine_site', 'jasmine']);
+	grunt.registerTask('travis', ['babel:test', 'webpack', 'jasmine']);
 };
