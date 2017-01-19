@@ -105,5 +105,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('docs', ['compile', 'preprocess', 'gh-pages']);
 	// grunt.registerTask('test', ['babel:test', 'webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
 	grunt.registerTask('test', ['clean:test', 'webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
-	grunt.registerTask('travis', ['babel:test', 'webpack', 'jasmine']);
+	grunt.registerTask('travis', ['clean:test', 'webpack', 'jasmine']);
 };
