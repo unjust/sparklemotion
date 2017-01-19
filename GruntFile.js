@@ -66,6 +66,7 @@ module.exports = function(grunt) {
 		'connect': {
 			jasmine_site: {
 				options: {
+					// directory: TEST_DEST,
 					port: 8000
 				}
 			}
@@ -75,7 +76,8 @@ module.exports = function(grunt) {
 			src: [], // TEST_DEST + 'lib.compiled.js',
 			options: {
 				specs: TEST_DEST + 'compiled.js',
-				outfile: TEST_DEST + '_SpecRunner.html'
+				outfile: TEST_DEST + '_SpecRunner.html',
+				keepRunner: true
 				// host: 'http://127.0.0.1:8000/'
 			}
 		},
@@ -108,6 +110,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('compile', ['clean', 'sass', 'babel:dist']);
 	grunt.registerTask('default', ['compile']);
 	grunt.registerTask('docs', ['compile', 'preprocess', 'gh-pages']);
-	grunt.registerTask('test', ['babel:test', 'webpack', 'connect:jasmine_site', 'jasmine']);
+	grunt.registerTask('test', ['babel:test', 'webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
 	grunt.registerTask('travis', ['babel:test', 'webpack', 'jasmine']);
 };
