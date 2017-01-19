@@ -23,41 +23,24 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-
-		'babel': {
-			options: {
-				presets: ['es2015']
-			},
-			test: {
-				files: {
-					'test/build/lib.js': 'src/js/lib.es6.js',
-					'test/build/DummySpec.js': 'test/js/spec/DummySpec.es6.js'
-				}
-			},
-			dist: {
-				files: {
-					'dist/lib.js': 'src/js/lib.es6.js'
-				}
-			}
-
-		},
-
 		'webpack': {
 			test: {
-				entry: ['./' + TEST_DEST + 'lib.js', './'+ TEST_DEST + '/DummySpec.js'],
+				entry: ['./src/js/lib.es6.js', './test/js/spec/DummySpec.es6.js'],
+				resolve: {
+					extensions: ['', '.js', '.es6.js']	
+				},
 				output: {
 					path: './' + TEST_DEST,
 					filename: 'compiled.js'
-				}
-				/*,
-				TODO: couldnt get this loader to work
+				},
+				// TODO: couldnt get this loader to work
 				module: {
 					loaders: [{
 						test: /\.es6.js$/,
 						exclude: /node_modules/,
 						loader: 'babel-loader'
 					}]
-				}*/
+				}
 			}
 		},
 
@@ -73,7 +56,7 @@ module.exports = function(grunt) {
 		},
 
 		'jasmine': {
-			src: [], // TEST_DEST + 'lib.compiled.js',
+			src:  [],
 			options: {
 				specs: TEST_DEST + 'compiled.js',
 				outfile: TEST_DEST + '_SpecRunner.html',
@@ -110,6 +93,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('compile', ['clean', 'sass', 'babel:dist']);
 	grunt.registerTask('default', ['compile']);
 	grunt.registerTask('docs', ['compile', 'preprocess', 'gh-pages']);
-	grunt.registerTask('test', ['babel:test', 'webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
+	// grunt.registerTask('test', ['babel:test', 'webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
+	grunt.registerTask('test', ['webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
 	grunt.registerTask('travis', ['babel:test', 'webpack', 'jasmine']);
 };
