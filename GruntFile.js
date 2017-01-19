@@ -53,7 +53,13 @@ module.exports = function(grunt) {
 		'connect': {
 			jasmine_site: {
 				options: {
-					// directory: TEST_DEST,
+					/*
+					base: {
+						path: './',
+						options: {
+							index: './test/build/SpecRunner.html'
+						}
+					},*/
 					port: 8000
 				}
 			}
@@ -63,7 +69,7 @@ module.exports = function(grunt) {
 			src:  TEST_DEST + 'lib_compiled.js',
 			options: {
 				specs: TEST_DEST + 'spec_compiled.js',
-				outfile: TEST_DEST + '_SpecRunner.html',
+				outfile: TEST_DEST + 'SpecRunner.html',
 				keepRunner: true
 				// host: 'http://127.0.0.1:8000/'
 			}
