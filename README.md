@@ -1,4 +1,4 @@
-# Sparklemotion
+# Sparklemotion [![Build Status](https://travis-ci.org/unjust/sparklemotion.svg?branch=master)](https://travis-ci.org/unjust/sparklemotion)
 Reusable animation CSS for web
 http://unjust.github.io/sparklemotion/
 
