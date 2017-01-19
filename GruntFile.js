@@ -10,8 +10,9 @@ module.exports = function(grunt) {
 		package: grunt.file.readJSON('package.json'),
 
 		'clean': {
-			css: ["dist/*.css"],
-			js: ["dist/*.js"]
+			test : ['test/build'],
+			css: ['dist/*.css'],
+			js: ['dist/*.js']
 		},
 
 		'sass': {
@@ -23,20 +24,23 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
 		'webpack': {
 			test: {
-				entry: ['./src/js/lib.es6.js', './test/js/spec/DummySpec.es6.js'],
-				resolve: {
-					extensions: ['', '.js', '.es6.js']	
+				// use babel loader to turn es6 to js for 
+				// test/build dir
+				entry: {
+					'lib': ['./src/js/lib.js'],
+					'spec': './test/js/DummySpec.js',
 				},
+				// resolve: {},
 				output: {
 					path: './' + TEST_DEST,
-					filename: 'compiled.js'
+					filename: '[name]_compiled.js'
 				},
-				// TODO: couldnt get this loader to work
 				module: {
 					loaders: [{
-						test: /\.es6.js$/,
+						test: /\.js$/,
 						exclude: /node_modules/,
 						loader: 'babel-loader'
 					}]
@@ -56,9 +60,9 @@ module.exports = function(grunt) {
 		},
 
 		'jasmine': {
-			src:  [],
+			src:  TEST_DEST + 'lib_compiled.js',
 			options: {
-				specs: TEST_DEST + 'compiled.js',
+				specs: TEST_DEST + 'spec_compiled.js',
 				outfile: TEST_DEST + '_SpecRunner.html',
 				keepRunner: true
 				// host: 'http://127.0.0.1:8000/'
@@ -94,6 +98,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['compile']);
 	grunt.registerTask('docs', ['compile', 'preprocess', 'gh-pages']);
 	// grunt.registerTask('test', ['babel:test', 'webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
-	grunt.registerTask('test', ['webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
+	grunt.registerTask('test', ['clean:test', 'webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
 	grunt.registerTask('travis', ['babel:test', 'webpack', 'jasmine']);
 };

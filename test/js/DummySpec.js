@@ -1,6 +1,5 @@
-//import swarmAnimate from '../../../src/js/lib';
+import swarmAnimate from '../../src/js/lib';
 
-import swarmAnimate from '../../../src/js/lib';
 
 describe("a first test boilerplate for swarmAnimate functions", function () {
 
