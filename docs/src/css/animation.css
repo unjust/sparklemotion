@@ -4,7 +4,7 @@
   100% {
     opacity: 1; } }
 
-.fade--in {
+.anim-fade--in {
   -webkit-animation: fade--in 0.5s ease-in;
   -moz-animation: fade--in 0.5s ease-in;
   animation: fade--in 0.5s ease-in;
