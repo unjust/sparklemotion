@@ -108,12 +108,15 @@ module.exports = function(grunt) {
 			options: {
 				src: DOCS_SRC,
 				dest: DOCS_DEST,
-				watch: true
 			},
-			serve: {
+			local: {
 				options: {
+					watch: true,
 					serve: true
 				}
+			},
+			ghpages: {
+				serve: false
 			}
 		}
 	});
@@ -121,8 +124,8 @@ module.exports = function(grunt) {
 	// TODO grunt copy for js, lint, uglify?
 	grunt.registerTask('compile', ['clean', 'sass', 'webpack']);
 	grunt.registerTask('default', ['compile']);
-	grunt.registerTask('local-docs', [ 'compile', 'preprocess', 'jekyll']);
-	grunt.registerTask('docs', ['local-docs', 'gh-pages']);
+	grunt.registerTask('local-docs', [ 'compile', 'preprocess', 'jekyll:local']);
+	grunt.registerTask('docs', ['compile', 'preprocess', 'jekyll:ghpages', 'gh-pages']);
 	grunt.registerTask('test', ['clean:test', 'webpack', 'jasmine', 'connect:jasmine_site:keepalive']);
 	grunt.registerTask('travis', ['clean:test', 'webpack', 'jasmine']);
 };
